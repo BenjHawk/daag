@@ -6,6 +6,6 @@ daag serves as a composer. It is used to generate appropriate atmosphere in the 
 ##### To Be Supported In The Future:
 * Java based
 * VST support
-* built-in control interface (graphical or textbased)
+* built-in control interface (graphical and textbased)
 * learning algorithms
 * community driven support
