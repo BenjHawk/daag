@@ -8,4 +8,4 @@ daag serves as a composer. It is used to generate appropriate atmosphere in the 
 * VST support
 * built-in control interface (graphical and textbased)
 * learning algorithms
-* community driven support
+* community driven support via seeds and voting system
