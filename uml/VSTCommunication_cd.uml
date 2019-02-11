@@ -1,0 +1,8 @@
+@startuml
+class JavaClient
+interface VSTInstrument
+interface VSTAdapter
+
+JavaClient o- VSTAdapter
+VSTInstrument <.. VSTAdapter
+@enduml

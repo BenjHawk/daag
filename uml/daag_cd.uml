@@ -1,8 +1,17 @@
 @startuml
-class JavaClient
-interface VSTInstrument
-interface VSTAdapter
 
-JavaClient o- VSTAdapter
-VSTInstrument <.. VSTAdapter
+Interface Parameter {
+	+change()
+}
+Interface Instrument
+Interface Composer
+Interface Seed
+
+Class Clock{
+	+tick()
+}
+
+Composer ..> Parameter
+Seed --o Composer
+
 @enduml

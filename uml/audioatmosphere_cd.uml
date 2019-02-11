@@ -1,0 +1,19 @@
+@startuml
+
+class AudioAtmosphere
+class Music
+class Time
+class Sound
+class Pitch
+class Duration
+class Bpm
+
+AudioAtmosphere o-- Sound
+Music o-- Time
+Music o-- Bpm
+Sound o-- Pitch
+Sound o-- Duration
+
+AudioAtmosphere <|- Music
+
+@enduml
