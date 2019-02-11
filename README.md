@@ -1,7 +1,7 @@
 # daag
-**d**ynamic **a**udio **a**tmosphere **g**enerator
+**D**ynamic **A**udio **A**tmosphere **G**enerator
 
-daag serves as a composer. It is used to generate appropriate atmosphere in the most different situations and environments. It composes audio atmosphere autonomically but controllable on demand.
+daag serves as an audio composer. It is used to generate appropriate atmosphere in the most different situations and environments. It composes audio atmosphere autonomically but controllable on demand.
 
 ##### To Be Supported In The Future:
 * Java based
