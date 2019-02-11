@@ -1,11 +1,15 @@
 @startuml
 
 Interface Parameter {
-	+change()
+	-value
+	+set(value)
+	+get():value
 }
 Interface Instrument
 Interface Composer
 Interface Seed
+Interface FX
+
 
 Class Clock{
 	+tick()
@@ -13,5 +17,7 @@ Class Clock{
 
 Composer ..> Parameter
 Seed --o Composer
+Composer .> FX
+Composer .> Instrument
 
 @enduml
