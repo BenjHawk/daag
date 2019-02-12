@@ -1,23 +1,41 @@
 @startuml
 
-Interface Parameter {
-	-value
-	+set(value)
-	+get():value
+Interface VSTInstrument
+
+namespace daag {
+	Interface ComposeStrategy{
+		-compose()	
+	}
+	Class Composer{
+		-time
+		+listen()
+		+fromSeed(Seed)
+		+toSeed(Seed)
+	}
+	Interface VSTAdapter
+	Interface FX
+	Interface Instrument
+	Interface Seed
+	
+	Class Clock{
+		+Clock(Composer)
+		+tick(interval)
+		+stop()
+	}
+
+	Class Musician{
+		-play()
+		+count()
+	}
+
+	ComposeStrategy ..o Composer
+	Composer o.. Seed
+	Composer *-- Musician
+	Composer *-- Clock
+	VSTAdapter .. Instrument
+	VSTAdapter .. FX
+	VSTAdapter .> .VSTInstrument
+	Instrument <|.. Musician
+	FX <|.. Musician
 }
-Interface Instrument
-Interface Composer
-Interface Seed
-Interface FX
-
-
-Class Clock{
-	+tick()
-}
-
-Composer ..> Parameter
-Seed --o Composer
-Composer .> FX
-Composer .> Instrument
-
 @enduml
