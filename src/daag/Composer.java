@@ -1,7 +1,6 @@
 package daag;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 /**
  * This class composes audio atmospheres.
@@ -55,6 +54,10 @@ public class Composer implements Listener {
 		}
 	}
 
+	public Seed toSeed() {
+		return seed;
+	}
+
 	public int getBpm() {
 		return bpm;
 	}
@@ -68,7 +71,6 @@ public class Composer implements Listener {
 		System.out.println("Composer:composing.");
 	}
 
-	// TODO: make private after testing
 	private int count() {
 		int tmp = this.time;
 		this.time = (this.time + 1) % this.measure;

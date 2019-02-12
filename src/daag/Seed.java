@@ -31,8 +31,8 @@ public class Seed {
 		return musicianCnt;
 	}
 
-	public void setMusicianCnt(int instrumentCnt) {
-		instrumentCnt = instrumentCnt;
+	public void setMusicianCnt(int musicianCnt) {
+		this.musicianCnt = musicianCnt;
 	}
 	
 }

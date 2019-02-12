@@ -1,8 +1,5 @@
 package daag;
 
-import java.util.Observable;
-import java.util.Observer;
-
 /**
  * Ein Musiker hat ein Notenblatt. Aus dem Notenblatt liest der Musiker wann er
  * welche Note zu spielen hat. Dazu hört der Musiker auf die Uhr. Eine Note hat
