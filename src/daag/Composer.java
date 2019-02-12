@@ -1,7 +1,5 @@
 package daag;
 
-import java.util.ArrayList;
-
 /**
  * This class composes audio atmospheres.
  * 
@@ -11,10 +9,7 @@ import java.util.ArrayList;
 public class Composer implements Listener {
 
 	private Seed seed;
-	private ArrayList<Musician> musicians;
-	private int time;
-	private int measure;
-	private int bpm;
+	private Seed composition;
 
 	public Composer() {
 	}
@@ -23,7 +18,8 @@ public class Composer implements Listener {
 	 * Listen gets called by tick-generator and decides what instrument should be
 	 * called. Possible bottleneck in multithreading.
 	 */
-	public synchronized void listen() {
+	public synchronized void listen(int time) {
+		// TODO: save Strategy to global variable instead of recreating it every time listen gets called
 		compose(new ComposeStrategy() {
 
 			@Override
@@ -39,25 +35,31 @@ public class Composer implements Listener {
 	 * 
 	 * @param seed
 	 */
-	public void fromSeed(Seed seed) {
-		int musicianCnt;
+	public void plantSeed(Seed seed) {
 
 		this.seed = seed;
-		bpm = seed.getBpm();
-
-		musicianCnt = seed.getMusicianCnt();
-		musicians = new ArrayList<>(musicianCnt);
-		for (int i = 0; i < musicianCnt; i++) {
-			musicians.add(new Musician());
+		
+		try {
+			this.composition = seed.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
 	}
 
-	public Seed toSeed() {
+	/**
+	 * @return current composition as Seed
+	 */
+	public Seed getComposition() {
+		return composition;
+	}
+
+	/**
+	 * @return current original Seed
+	 */
+	public Seed getSeed() {
 		return seed;
-	}
-
-	public int getBpm() {
-		return bpm;
 	}
 
 	/**
@@ -68,11 +70,4 @@ public class Composer implements Listener {
 	private void compose(ComposeStrategy cs) {
 		System.out.println("Composer:composing.");
 	}
-
-	private int count() {
-		int tmp = this.time;
-		this.time = (this.time + 1) % this.measure;
-		return tmp;
-	}
-
 }

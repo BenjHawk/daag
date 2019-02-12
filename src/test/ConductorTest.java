@@ -19,7 +19,7 @@ class ConductorTest {
 	@BeforeEach
 	void init() {
 		Composer comp = new Composer();
-		comp.fromSeed(new Seed());
+		comp.plantSeed(new Seed());
 		c = new Conductor(comp);
 	}
 

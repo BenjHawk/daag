@@ -11,14 +11,14 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class Conductor {
 
 	private final int THREADCOUNT = 4;
-	private int bpm;
+	private int time;
+	private Seed composition;
 	private ArrayList<Listener> listeners;
 	private ScheduledExecutorService scheduler;
 
 	public Conductor(Composer composer) {
 		listeners = new ArrayList<>();
 		listeners.add(composer);
-		bpm = composer.getBpm();
 		scheduler = Executors.newScheduledThreadPool(THREADCOUNT);
 	}
 
@@ -42,13 +42,15 @@ public class Conductor {
 	 * @throws ExecutionException
 	 */
 	private void tick() throws InterruptedException, ExecutionException {
+		// TODO: call all Listeners (those are the Composer and all Musicians)
 		System.out.println("Conductor::tick()");
 			scheduler.scheduleAtFixedRate(new Runnable() {
 				@Override
 				public void run() {
 					System.out.println("Conductor::tick():run()");
+					count();
 				}
-			}, 0, bpm, TimeUnit.MILLISECONDS);
+			}, 0, composition.getBpm(), TimeUnit.MILLISECONDS);
 	}
 
 	public void addListener(Listener listener) {
@@ -60,5 +62,15 @@ public class Conductor {
 		// TODO: test method. Perhaps equals() has to be overridden in Listener Classes
 		throw new NotImplementedException();
 	}
+	
+	private synchronized void count() {
+		time++;
+		time = time % composition.getMeasure();
+	}
+
+	public int getTime() {
+		return time;
+	}
+	
 
 }

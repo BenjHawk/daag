@@ -1,5 +1,5 @@
 package daag;
 
 public interface Listener {
-	public void listen();
+	public void listen(int time);
 }

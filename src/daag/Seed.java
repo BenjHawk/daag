@@ -6,7 +6,7 @@ package daag;
  * @author bhauc
  *
  */
-public class Seed {
+public class Seed implements Cloneable{
 	private int musicianCnt = 1;
 	private int measure = 4;
 	private int bpm = 120;
@@ -33,6 +33,11 @@ public class Seed {
 
 	public void setMusicianCnt(int musicianCnt) {
 		this.musicianCnt = musicianCnt;
+	}
+	
+	@Override
+	public Seed clone() throws CloneNotSupportedException {
+		return (Seed) super.clone();
 	}
 	
 }
