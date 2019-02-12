@@ -24,6 +24,7 @@ class ConductorTest {
 	}
 
 	@Test
+	@Disabled
 	void testConductor() {
 		assertTrue(c != null);
 	}

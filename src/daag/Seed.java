@@ -2,7 +2,8 @@ package daag;
 
 /**
  * This class holds all information, that is needed to define a certain audio
- * atmosphere.
+ * atmosphere. It is used to initialize and store compositions used by 
+ * Composer.
  * @author bhauc
  *
  */
