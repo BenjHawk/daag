@@ -10,37 +10,28 @@ package daag;
  */
 public class Musician implements Listener {
 
-	String name; // testing value for visualization
-	// measure<Note>
+	private DaagInstrument instrument;
+	// private measure<Note> "notenBlatt";
 
-	public Musician(int n) {
-		generateTestingName(n);
+	public Musician() {
+		instrument = new DaagInstrument();
 	}
 
-	/**
-	 * testing
-	 **/
-	private void generateTestingName(int n) {
-		String s = "";
-		for (int i = 0; i < n; i++) {
-			s += ".";
-		}
-		s += n;
-		this.name = s;
-	}
-
-	/**
-	 * testing
-	 **/
-	public String mockPlay() {
+	private void play(Note note) {
 //		System.out.println("Musician::mockPlay()");
-		return this.name;
+		instrument.play(note);
 	}
 
 	@Override
 	public void listen() {
+		Note noteToPlay;
 		// TODO Auto-generated method stub
-
+		noteToPlay = lookUpSheetOfMusic();
+		play(noteToPlay);
 	}
 
+	private Note lookUpSheetOfMusic() {
+		// TODO: implement / overwrite mocking behavior 
+		return new Note(0, 60, 1);
+	}
 }

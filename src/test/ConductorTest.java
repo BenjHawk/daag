@@ -1,4 +1,4 @@
-package daag;
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +7,10 @@ import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import daag.Composer;
+import daag.Conductor;
+import daag.Seed;
 
 class ConductorTest {
 

@@ -31,9 +31,7 @@ public class Composer implements Listener {
 				// TODO Auto-generated method stub
 				return null;
 			}
-
 		});
-		System.out.println(musicians.get(count()).mockPlay());
 	}
 
 	/**
@@ -50,7 +48,7 @@ public class Composer implements Listener {
 		musicianCnt = seed.getMusicianCnt();
 		musicians = new ArrayList<>(musicianCnt);
 		for (int i = 0; i < musicianCnt; i++) {
-			musicians.add(new Musician(i));
+			musicians.add(new Musician());
 		}
 	}
 
