@@ -7,9 +7,9 @@ package daag;
  *
  */
 public class Seed implements Cloneable{
-	private int musicianCnt = 1;
-	private int measure = 4;
-	private int bpm = 120;
+	private int musicianCnt;
+	private int measure;
+	private int bpm;
 
 	public int getMeasure() {
 		return measure;
@@ -35,9 +35,21 @@ public class Seed implements Cloneable{
 		this.musicianCnt = musicianCnt;
 	}
 	
+	public Seed() {
+		loadSeedFromFile("mockLink");
+	}
+	
 	@Override
 	public Seed clone() throws CloneNotSupportedException {
 		return (Seed) super.clone();
+	}
+	
+	private void loadSeedFromFile(String url) {
+		//TODO: implement
+
+		musicianCnt = 1;// mocking data
+		measure = 4;	// mocking data
+		bpm = 120;		// mocking data
 	}
 	
 }
