@@ -16,13 +16,12 @@ public class Conductor {
 	private ArrayList<Listener> listeners;
 	private ScheduledExecutorService scheduler;
 
-	public Conductor(Composer composer) {
+	public Conductor() {
 		listeners = new ArrayList<>();
-		listeners.add(composer);
 		scheduler = Executors.newScheduledThreadPool(THREADCOUNT);
 	}
 
-	public boolean start() throws InterruptedException, ExecutionException {
+	public boolean start() {
 		System.out.println("Conductor::start()");
 		tick();
 		return true;
@@ -41,7 +40,7 @@ public class Conductor {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	private void tick() throws InterruptedException, ExecutionException {
+	private void tick() {
 		// TODO: call all Listeners (those are the Composer and all Musicians)
 		System.out.println("Conductor::tick()");
 			scheduler.scheduleAtFixedRate(new Runnable() {
@@ -72,5 +71,12 @@ public class Conductor {
 		return time;
 	}
 	
+	public void setComposition(Seed composition) {
+		this.composition = composition;
+	}
+	
+	public void setComposer(Composer composer) {
+		this.listeners.add(composer);
+	}
 
 }

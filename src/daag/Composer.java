@@ -10,6 +10,7 @@ public class Composer implements Listener {
 
 	private Seed seed;
 	private Seed composition;
+	private Conductor conductor;
 
 	public Composer() {
 	}
@@ -35,17 +36,17 @@ public class Composer implements Listener {
 	 * 
 	 * @param seed
 	 */
-	public void plantSeed(Seed seed) {
+	public void seed(Seed seed) {
 
 		this.seed = seed;
 		
 		try {
-			this.composition = seed.clone();
+			composition = seed.clone();
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		conductor.setComposition(composition);
 	}
 
 	/**
@@ -69,5 +70,9 @@ public class Composer implements Listener {
 	 */
 	private void compose(ComposeStrategy cs) {
 		System.out.println("Composer:composing.");
+	}
+	
+	public void setConductor(Conductor conductor) {
+		this.conductor = conductor;
 	}
 }

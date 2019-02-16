@@ -36,8 +36,8 @@ public class Seed implements Cloneable{
 		this.musicianCnt = musicianCnt;
 	}
 	
-	public Seed() {
-		loadSeedFromFile("mockLink");
+	public Seed(String url) {
+		loadSeedFromFile(url);
 	}
 	
 	@Override
@@ -47,7 +47,7 @@ public class Seed implements Cloneable{
 	
 	private void loadSeedFromFile(String url) {
 		//TODO: implement
-
+		System.err.println("Seed:loadSeedFromFile():not implemented. Mocking behavior.");
 		musicianCnt = 1;// mocking data
 		measure = 4;	// mocking data
 		bpm = 120;		// mocking data
