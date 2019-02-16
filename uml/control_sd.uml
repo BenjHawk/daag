@@ -1,0 +1,16 @@
+@startuml
+control Control
+entity Conductor
+entity Composer
+
+collections Instruments
+Control -> Composer: this.Conductor
+Control -> Composer: seed
+Composer -> Conductor: composition
+Control -> Conductor: start
+Conductor -> Composer: tick
+Composer -> Composer: compose
+Conductor -> Instruments: tick
+Instruments -> Instruments: play
+Control -> Conductor: stop
+@enduml

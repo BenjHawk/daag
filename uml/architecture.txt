@@ -1,0 +1,8 @@
+Der Komponist schreibt die Komposition.
+Die Komposition besteht aus Notenblättern und Musikern.
+Jeder Musiker spielt ein bestimmtes Instrument, das den Klang definiert.
+Jedem Musiker ist ein Notenblatt zugeordnet.
+Die Musiker spielen ihre Instrumente anhand der Informationen in den Notenblättern.
+In den Notenblättern ist die Information enthalten zu welcher Zeit welche Note gespielt wird.
+Eine Note hat eine Lautstärke, einen Tonwert und eine Dauer.
+Die Zeit bestimmt der Dirigent, der in der Lage ist mit einem Takt zu zählen.
