@@ -12,12 +12,13 @@ public class Conductor {
 
 	private final int THREADCOUNT = 4;
 	private int time;
+	private Listener composer;
 	private Seed composition;
-	private ArrayList<Listener> listeners;
+//	private ArrayList<Listener> listeners;
 	private ScheduledExecutorService scheduler;
 
 	public Conductor() {
-		listeners = new ArrayList<>();
+//		listeners = new ArrayList<>();
 		scheduler = Executors.newScheduledThreadPool(THREADCOUNT);
 	}
 
@@ -46,21 +47,26 @@ public class Conductor {
 			scheduler.scheduleAtFixedRate(new Runnable() {
 				@Override
 				public void run() {
-					System.out.println("Conductor::tick():run()");
+//					System.out.println("Conductor::tick():run()");
+//					for(Listener listener : listeners)
+//						listener.listen(time);
+					composer.listen(time);
+					for(Listener musician: composition.getMusicians())
+						musician.listen(time);
 					count();
 				}
 			}, 0, composition.getBpm(), TimeUnit.MILLISECONDS);
 	}
 
-	public void addListener(Listener listener) {
-		listeners.add(listener);
-	}
-
-	public void delListener(Listener listener) {
-		listeners.remove(listener);
-		// TODO: test method. Perhaps equals() has to be overridden in Listener Classes
-		throw new NotImplementedException();
-	}
+//	private void addListener(Listener listener) {
+//		listeners.add(listener);
+//	}
+//
+//	private void delListener(Listener listener) {
+//		listeners.remove(listener);
+//		// TODO: test method. Perhaps equals() has to be overridden in Listener Classes
+//		throw new NotImplementedException();
+//	}
 	
 	private synchronized void count() {
 		time++;
@@ -75,8 +81,9 @@ public class Conductor {
 		this.composition = composition;
 	}
 	
-	public void setComposer(Composer composer) {
-		this.listeners.add(composer);
+	public void setComposer(Listener composer) {
+//		addListener(composer);
+		this.composer = composer;
 	}
 
 }

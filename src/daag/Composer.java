@@ -21,14 +21,7 @@ public class Composer implements Listener {
 	 */
 	public synchronized void listen(int time) {
 		// TODO: save Strategy to global variable instead of recreating it every time listen gets called
-		compose(new ComposeStrategy() {
-
-			@Override
-			public Seed compose(Seed seed) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		});
+		compose(composition.getComposeStrategy());
 	}
 
 	/**
@@ -44,6 +37,7 @@ public class Composer implements Listener {
 			composition = seed.clone();
 		} catch (CloneNotSupportedException e) {
 			// TODO Auto-generated catch block
+			System.err.println("Composer:seed():Failure cloning composition from seed.");
 			e.printStackTrace();
 		}
 		conductor.setComposition(composition);
@@ -69,7 +63,7 @@ public class Composer implements Listener {
 	 * @param cs
 	 */
 	private void compose(ComposeStrategy cs) {
-		System.out.println("Composer:composing.");
+		System.out.println("Composer:compose():composing");
 	}
 	
 	public void setConductor(Conductor conductor) {

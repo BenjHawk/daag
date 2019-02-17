@@ -16,19 +16,20 @@ public class Musician implements Listener {
 	private DaagInstrument instrument;
 	// private measure<Note> "notenBlatt";
 
-	public Musician() {
+	public Musician(ArrayList<Note> sheetOfMusic) {
 		instrument = new DaagInstrument();
-		sheetOfMusic = new ArrayList<>();
+		this.sheetOfMusic = sheetOfMusic;
 	}
 
 	private void play(Note note) {
-//		System.out.println("Musician::mockPlay()");
+		System.out.println("Musician::play()");
 		if (note != null)
 			instrument.play(note);
 	}
 
 	@Override
 	public void listen(int time) {
+		System.out.println("Musician::listen()");
 		Note noteToPlay;
 		// TODO Auto-generated method stub
 		noteToPlay = lookUpSheetOfMusic(time);

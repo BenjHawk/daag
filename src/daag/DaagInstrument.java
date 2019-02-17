@@ -29,6 +29,10 @@ public class DaagInstrument {
 		midiSynth.loadInstrument(instr[0]);// load an instrument
 	}
 
+	/**
+	 * Standard values for note are volume:0 (not implemented), pitch:60, duration:1000
+	 * @param note
+	 */
 	public void play(Note note) {
 		// TODO: check midi behavior
 		// TODO: do not use Thread.sleep -> use daag.Conductor?
